@@ -1,0 +1,31 @@
+<div class="container pt-2">
+    <div class="row">
+        <mat-card class="card">
+            <mat-card-header >
+                <mat-card-title>Ajout de Formulaire</mat-card-title>
+            </mat-card-header>
+            <mat-card-actions align="end">
+                <a target="_blank" routerLink="/form" mat-button class="bouton">
+                    <mat-icon>visibility</mat-icon>
+                    Aperçu
+                </a>
+                <a mat-button class="bouton">
+                    <mat-icon>language</mat-icon>
+                    Partager
+                </a>
+            </mat-card-actions> 
+
+            <mat-card-content>
+                <div fxLayout="row" fxLayout.sm="column" fxLayoutAlign="space-between start" fxLayoutGap="15px" class="stats-cards">
+                    <mat-card fxFlex="25" class="mat-elevation-z8" >
+                        <app-field-bar (addField)="onAddField($event)"></app-field-bar>       
+                    </mat-card>
+                    <mat-card fxFlex="75" class="carte">
+                        <app-dynamic-form [fields]="fields" [form]="form"></app-dynamic-form>       
+                    </mat-card> 
+                </div>
+                
+            </mat-card-content>       
+        </mat-card>
+    </div>
+</div>

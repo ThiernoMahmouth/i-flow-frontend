@@ -1,0 +1,157 @@
+<h1 mat-dialog-title>Etape {{ data.numero }} du Workflow</h1>
+<div mat-dialog-content>
+<mat-stepper class="example-stepper" [orientation]="(stepperOrientation | async)!">
+    <!----*******************************     DESCRIPTION     **************************************************---->
+    <mat-step [stepControl]="descriptionFormGroup" label="Description">
+      <form [formGroup]="descriptionFormGroup">
+        <mat-form-field appearance="outline" style="width: 50%;">
+            <mat-label>nom</mat-label>
+            <input matInput formControlName="nom">
+        </mat-form-field>
+        <div>
+        <mat-form-field appearance="outline" style="width: 75%;">
+            <mat-label>Description de l'étape</mat-label>
+            <textarea matInput ></textarea>
+          </mat-form-field>
+          </div>
+        <div class="navigationButton">
+          <button mat-raised-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+    <!----**********************************     INTERVENANT     *****************************************************---->
+    <mat-step [stepControl]="intervenantFormGroup" label="Intervenants">
+      <form [formGroup]="intervenantFormGroup">
+        <div class="input-row" *ngFor="let intervenant of intervenantArray.controls; index as idx; last as isLast">
+            <mat-form-field appearance="outline">
+                <mat-label>Intervenant</mat-label>
+                <mat-select  name="profil" (selectionChange)="handleSelect($event)">
+                  <mat-option *ngFor="let profil of data.roles" [value]="profil">
+                    {{ profil }}
+                  </mat-option>
+                  <mat-option value="NULL" >Créer un nouveau profil</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Droits</mat-label>
+                <mat-select  name="droits" multiple>
+                  <mat-option *ngFor="let droit of droits" [value]="droit">
+                    {{droit}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button mat-icon-button color="warn" *ngIf="intervenantArray.length > 1" (click)="removeIntervenantControl(idx)">
+                <mat-icon>remove_circle</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" *ngIf="isLast" (click)="addIntervenantControl()">
+                <mat-icon>add_circle</mat-icon>
+            </button>
+        </div>
+        <div class="navigationButton">
+          <button mat-raised-button matStepperPrevious>Précédent</button>
+          <button mat-raised-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+    <!----*************************************       ETATS       **************************************************---->
+    <mat-step [stepControl]="thirdFormGroup" label="Etats">
+      <form [formGroup]="thirdFormGroup">
+        <mat-form-field appearance="outline">
+          <mat-label>Etats</mat-label>
+          <mat-select #select  name="etats" multiple (selectionChange)="handleSelectEtat($event)">
+            <mat-option *ngFor="let etat of data.etats" [value]="etat">
+              {{ etat }}
+            </mat-option> 
+          </mat-select>
+        </mat-form-field>
+        <button mat-icon-button color="primary" (click)="openAddEtatDialog()">
+          <mat-icon>add_circle</mat-icon>
+        </button>  
+
+        <div class="navigationButton">
+          <button mat-raised-button matStepperPrevious>Précédent</button>
+          <button mat-raised-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <!----**************************************     ACTIONS     *************************************************---->
+    <mat-step label="Actions">
+      <form [formGroup]="actionsFormGroup">
+        <div class="input-row" *ngFor="let actionCtrl of actionsArray.controls; index as idx; last as isLast">
+          <mat-form-field appearance="outline">
+            <mat-label>Actions</mat-label>
+            <mat-select #mySelect  name="action">
+              <mat-option *ngFor="let action of data.actions" [value]="action.nom">
+                <span>
+                  <mat-icon>{{ action.icone }}</mat-icon>
+                </span>
+                {{ action.nom }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div style="display: inline-block;"  *ngIf="mySelect.selected">
+            <div style="display: inline-block;">
+              <mat-form-field appearance="outline" >
+                <mat-label>Type Transition</mat-label>
+                <mat-select #myType name="transition">
+                  <mat-option *ngFor="let type of typesTransition" [value]="type">
+                    {{ type }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div style="display: inline-block;" *ngIf="isAutomatique(myType)">
+              <mat-form-field appearance="outline" >
+                <mat-label>Etat Final</mat-label>
+                <mat-select  name="etat">
+                  <mat-option *ngFor="let etat of data.etats" [value]="etat">
+                    {{ etat }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div style="display: inline-block;" *ngIf="isManuelle(myType)">
+              <mat-form-field appearance="outline" >
+                <mat-label>Etats Finaux</mat-label>
+                <mat-select  name="etat" multiple>
+                  <mat-option *ngFor="let etat of data.etats" [value]="etat">
+                    {{ etat }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div style="display: inline-block;" *ngIf="isSousCondition(myType)">
+              <mat-form-field appearance="outline" >
+                <mat-label>Condition</mat-label>
+                <input matInput name="condition">
+              </mat-form-field>
+              <mat-form-field appearance="outline" >
+                <mat-label>Etat Final</mat-label>
+                <mat-select  name="etat">
+                  <mat-option *ngFor="let etat of data.etats" [value]="etat">
+                    {{ etat }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        <button mat-icon-button color="warn" *ngIf="actionsArray.length > 1" (click)="removeActionControl(idx)">
+          <mat-icon>remove_circle</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" *ngIf="isLast" (click)="addActionControl()">
+            <mat-icon>add_circle</mat-icon>
+        </button>
+      </div>
+        <div class="navigationButton">
+          <button mat-raised-button matStepperPrevious>Précédent</button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-stepper>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onClose()" style="margin-right: 5%;">Annuler</button>
+  <button mat-raised-button [mat-dialog-close]="onSave()" cdkFocusInitial [disabled]="activer()">Enregistrer</button>
+</div>
+

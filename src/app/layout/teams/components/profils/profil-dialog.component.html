@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Ajout de profil</h1>
+<div mat-dialog-content>
+    <mat-form-field appearance="outline">
+        <mat-label>Nom:</mat-label>
+        <input matInput [(ngModel)]="data">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onClose()" style="margin-right: 5%;">Annuler</button>
+  <button mat-raised-button [mat-dialog-close]="data" cdkFocusInitial>Enregistrer</button>
+</div>

@@ -1,0 +1,48 @@
+<div class="container pt-2">
+    <div class="row">    
+        <div fxLayout="row" fxLayout.sm="column" fxLayoutAlign="space-between start" fxLayoutGap="15px" class="stats-cards">
+            <mat-card fxFlex="25" class="mat-elevation-z8">
+                <div class="form-group" style="margin-top: 25px;">
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" id="nom" [(ngModel)]="wf.name" placeholder="Nom du Workflow">
+                </div>
+                <!-- <mat-form-field appearance="outline">
+                    <mat-label>Nom du Workflow</mat-label>
+                    <input matInput name="nom">
+                </mat-form-field> -->
+                <div *ngIf="!existsDescription()" class="div">
+                    <a mat-button class="btn btn-outline-*" (click)="showDescriptionField()">Ajouter une description</a>
+                </div>
+                <div class="form-group div" *ngIf="existsDescription()" >
+                    <label for="desc">Description</label>
+                    <input type="text" class="form-control" id="desc"  [(ngModel)]="wf.description" placeholder="Description">
+                </div>
+                <div>
+                    <button mat-raised-button (click)="addStage()" class="bouton">
+                        <mat-icon>add</mat-icon>
+                        Etape
+                    </button>
+                </div>
+            </mat-card>
+            <mat-card fxFlex="75" class="mat-elevation-z8">
+                <mat-card-actions align="end">
+                    <button mat-button class="bouton">
+                        <mat-icon>visibility</mat-icon>
+                        Aperçu
+                    </button>
+                    <button mat-button class="bouton">
+                        <mat-icon>language</mat-icon>
+                        Partager
+                    </button>
+                </mat-card-actions>
+                <mat-card-content>
+                    <div class="cadre">
+
+                    </div>
+                </mat-card-content>
+            </mat-card> 
+        </div>    
+            
+    </div>
+    
+</div>

@@ -1,0 +1,11 @@
+<div class="divTitre">
+    <h3 class="titre" mat-card-title>Ajouter un champ</h3>
+</div>
+
+<div *ngFor="let formField of fieldType" class="divButton">
+    <button mat-stroked-button class="button" (click)="add(formField)">
+        <mat-icon>{{ formField.icon }}</mat-icon>
+        <span class="label">{{ formField.label }}</span>
+    </button>
+</div>
+    

@@ -1,0 +1,25 @@
+.div
+{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.cadre
+{
+    /* width: 400px; */
+    height: 500px;
+    max-width: 100%;
+    border: dotted #ccc 2px;
+}
+
+.bouton
+{
+  border: 1px solid var(--blue);
+  color: var(--blue);
+}
+
+.bouton:hover
+{
+  background-color: var(--blue);
+  color: white;
+}

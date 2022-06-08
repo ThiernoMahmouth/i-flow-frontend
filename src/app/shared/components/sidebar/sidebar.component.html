@@ -1,0 +1,17 @@
+<mat-nav-list>
+    <div class="logo py-4">
+      <img src="./assets/logo.svg" alt="i-flow" />
+    </div>
+    <mat-divider></mat-divider>
+    <!-- <h2 matSubheader class="mt-2">APPLICATIONS</h2> -->
+
+    <ng-container *ngFor="let data of navbarData">
+        <a mat-list-item  [routerLink]="data.routeLink">
+            <mat-icon>{{ data.icon }}</mat-icon>
+            <span>{{ data.label }}</span>
+            <!--<span *ngIf="collapsed">{{ data.label }}</span>-->
+        </a>
+    </ng-container>
+    
+</mat-nav-list>
+  

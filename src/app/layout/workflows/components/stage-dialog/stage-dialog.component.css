@@ -1,0 +1,27 @@
+.navigationButton
+{
+    margin-top: 5px;
+}
+
+.navigationButton button
+{
+    margin-right: 10px;
+}
+.mat-form-field
+{
+    padding-top: 10px;
+    margin-right: 20px;
+}
+
+.conteneur
+{
+    display: block;
+    border: 1px solid var(--blue);
+    width: 100%;
+}
+
+.button
+{
+    height: 20px;
+    margin-right: 10px;
+}

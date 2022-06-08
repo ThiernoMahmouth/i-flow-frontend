@@ -1,0 +1,69 @@
+mat-card 
+{
+    max-width: 500px;
+    height: 400px;
+    /* margin: 2em auto; */
+    /* margin: 5% auto; */
+    /* margin-top: 200px; */
+    padding-right: 5%;
+    padding-top: 5%;
+    text-align: center;
+    /* padding-top: 3%; */
+    /* border: 2px solid var(--orange); */
+}
+
+mat-form-field 
+{
+    display: block;
+}
+
+.form-group
+{
+    margin-top: 5%;
+}
+
+.form-label
+{
+    float: left;
+    margin-bottom: 1%;
+    font-size: large;
+}
+
+.bouton
+{
+    margin-top: 5%;
+    width: 100%;
+    background-color: var(--blue);
+}
+
+.image
+{
+    width: 700px;
+    height: 700px;
+}
+
+.divBlock
+{
+    display: inline-block;
+    margin-left: 100px;
+}
+
+.carte
+{
+
+}
+
+.divTexte
+{
+    margin-top: 5%;
+}
+
+.logo 
+{
+    text-align: center;
+    /* padding: 2.6rem 1rem; */
+}
+.logo img 
+{
+    width: 200px;
+}

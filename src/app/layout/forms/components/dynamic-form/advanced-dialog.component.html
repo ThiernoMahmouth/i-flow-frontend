@@ -1,0 +1,63 @@
+<h1 mat-dialog-title>Avancés </h1>
+<div mat-dialog-content>
+<mat-stepper class="example-stepper" [orientation]="(stepperOrientation | async)!">
+
+    <mat-step [stepControl]="descriptionFormGroup" label="Description">
+        <form >
+          <mat-form-field appearance="outline" style="width: 50%;">
+              <mat-label>nom</mat-label>
+              <input matInput >
+          </mat-form-field>
+          <div>
+          <mat-form-field appearance="outline" style="width: 75%;">
+              <mat-label>Description de l'étape</mat-label>
+              <textarea matInput ></textarea>
+            </mat-form-field>
+            </div>
+          <div class="navigationButton">
+            <button mat-raised-button matStepperNext>Suivant</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="descriptionFormGroup" label="Données">
+        <form >
+          <mat-form-field appearance="outline" style="width: 50%;">
+              <mat-label>nom</mat-label>
+              <input matInput >
+          </mat-form-field>
+          <div>
+          <mat-form-field appearance="outline" style="width: 75%;">
+              <mat-label>Description de l'étape</mat-label>
+              <textarea matInput ></textarea>
+            </mat-form-field>
+            </div>
+          <div class="navigationButton">
+            <button mat-raised-button matStepperNext>Suivant</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="descriptionFormGroup" label="Validation">
+        <form >
+          <mat-form-field appearance="outline" style="width: 50%;">
+              <mat-label>nom</mat-label>
+              <input matInput >
+          </mat-form-field>
+          <div>
+          <mat-form-field appearance="outline" style="width: 75%;">
+              <mat-label>Description de l'étape</mat-label>
+              <textarea matInput ></textarea>
+            </mat-form-field>
+            </div>
+          <div class="navigationButton">
+            <button mat-raised-button matStepperNext>Suivant</button>
+          </div>
+        </form>
+      </mat-step>
+</mat-stepper>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onClose()" style="margin-right: 5%;">Annuler</button>
+  <button mat-raised-button [mat-dialog-close]="data" cdkFocusInitial>Enregistrer</button>
+</div>

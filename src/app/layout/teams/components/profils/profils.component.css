@@ -1,0 +1,50 @@
+/* Structure */
+table 
+{
+    width: 100%;
+}
+  
+.mat-form-field 
+{
+    font-size: 14px;
+    width: 50%;
+}
+/*   
+.bouton
+{
+    background-color: var(--marron);
+    margin: 20px;
+    width: 10%;
+    margin-left: 38%;
+    color: white;
+
+} */
+
+.example-action-buttons {
+    padding-bottom: 20px;
+  }
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.bouton
+{
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  margin: 20px;
+  margin-left: 38%;
+  width: 100px;
+}
+
+.bouton:hover
+{
+  background-color: var(--blue);
+  color: white;
+}

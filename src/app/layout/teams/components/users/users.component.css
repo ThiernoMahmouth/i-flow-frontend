@@ -1,0 +1,42 @@
+/* Structure */
+table 
+{
+    width: 100%;
+}
+  
+.mat-form-field 
+{
+    font-size: 14px;
+    width: 50%; 
+}
+
+/* .bouton
+{
+    background-color: var(--marron);
+    margin: 20px;
+    width: 10%;
+    margin-left: 38%;
+    color: white;
+} */
+  
+
+
+.bouton
+{
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  margin: 20px;
+  margin-left: 42%;
+}
+
+.bouton:hover
+{
+  background-color: var(--blue);
+  color: white;
+}
+
+
+.champ
+{
+    width: 100%;
+}

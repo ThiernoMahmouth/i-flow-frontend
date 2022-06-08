@@ -1,0 +1,28 @@
+.content 
+{
+    padding: 16px;
+}
+
+.content > mat-card 
+{
+    width: 200px;
+}
+
+.barre
+{
+    align-items: center;   
+    float: end; 
+}
+
+.carte
+{
+    border: 2px solid var(--orange);
+}
+
+.bouton
+{
+    margin-top: 10%;
+    border: 1px solid;
+    border-radius: 0.3rem;
+    background-color: var(--orange);
+}

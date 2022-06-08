@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root
+{
+    --marron: #662b0d;
+    --orange: #EB9022;
+    /* --blue: #0d4fb9; */
+    --blue:#287bff;
+    --second: #6b98e0;
+    /* --orange: #f06c20; */
+
+}
+
+/* .form-control:focus 
+{
+    border-color: var(--blue);
+    box-shadow: 0 0 0 1px var(--blue);
+} */
+  
+.mat-ink-bar
+{
+    background-color: var(--blue) !important;
+}

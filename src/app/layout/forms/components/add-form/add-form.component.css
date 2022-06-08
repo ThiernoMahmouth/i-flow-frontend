@@ -1,0 +1,26 @@
+.card 
+{
+    max-width: 100%;
+}
+  
+.stats-cards .mat-card 
+{
+  overflow: hidden;
+}
+
+.bouton
+{
+  border: 1px solid var(--blue);
+  color: var(--blue);
+}
+
+.bouton:hover
+{
+  background-color: var(--blue);
+  color: white;
+}
+
+.carte
+{
+  border: 2px solid var(--blue);
+}

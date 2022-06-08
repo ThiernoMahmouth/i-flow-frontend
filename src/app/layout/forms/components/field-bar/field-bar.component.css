@@ -1,0 +1,63 @@
+.card 
+{
+    max-width: 25%;
+}
+  
+.divButton 
+{
+    display: flex;
+    justify-content: center;
+    align-items: inherit;
+}
+
+.divTitre
+{
+    background-color: var(--blue);
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.titre
+{
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2rem;
+    /* padding-bottom: 10px; */
+}
+
+.button
+{
+    margin-bottom: 7px;
+    width: 90%;
+    padding: auto;
+    /* justify-content: space-between; */
+    align-items: center;
+    /* background-color: var(--orange);  */
+    /* border: 1px solid var(--orange); */
+
+}
+
+.button:hover
+{
+    background-color: var(--blue);
+}
+
+.button:hover .label
+{
+    color: white;
+}
+
+.label
+{
+    text-align: center;
+    font-size: 1rem;
+    /* color: var(--blue); */
+}
+
+.mat-icon
+{
+    float: left;
+}

@@ -1,0 +1,60 @@
+mat-card 
+{
+    max-width: 500px;
+    height: 500px;
+    /* margin: 2em auto; */
+    /* margin: 5% auto; */
+    /* padding-right: 5px; */
+    /* padding-top: 5px; */
+    margin-top: 50px;
+    padding-bottom: 5%;
+    text-align: center;
+    /* padding-top: 3%; */
+    /* border: 2px solid var(--orange); */
+}
+
+mat-form-field 
+{
+    display: block;
+}
+
+.form-group
+{
+    margin-top: 5%;
+}
+
+.form-label
+{
+    float: left;
+    margin-bottom: 1%;
+    font-size: large;
+}
+
+.bouton
+{
+    margin-top: 5%;
+    width: 100%;
+    background-color: var(--blue);
+}
+
+.image
+{
+    width: 700px;
+    height: 700px;
+}
+
+.divBlock
+{
+    display: inline-block;
+    margin-left: 100px;
+}
+
+.divTexte
+{
+    margin-top: 5%;
+}
+
+.carte
+{
+
+}
