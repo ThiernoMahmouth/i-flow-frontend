@@ -18,6 +18,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatStepperModule } from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+
 
 
 
@@ -26,7 +29,8 @@ const MaterialComponents =
   MatMenuModule, MatToolbarModule, MatIconModule, MatDialogModule, 
   MatTableModule, MatTabsModule, MatSortModule,MatPaginatorModule, MatCardModule, 
   MatFormFieldModule, MatSidenavModule, MatListModule, MatDividerModule,
-  MatInputModule, MatButtonModule, MatExpansionModule, MatStepperModule, MatSelectModule
+  MatInputModule, MatButtonModule, MatExpansionModule, MatStepperModule, MatSelectModule,
+  MatDatepickerModule, MatNativeDateModule
 ]
 
 @NgModule({ 

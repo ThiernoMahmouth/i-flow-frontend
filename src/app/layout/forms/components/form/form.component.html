@@ -1,1 +1,84 @@
-<p>form works!</p>
+<div class="container pt-2">
+    <div class="row">
+        <mat-card class="card">
+            <mat-card-header >
+                <mat-card-title>{{ form.titre }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-actions align="end">
+                <a  [routerLink]="['../add-form']" [state]="{formulaire: form}" mat-button class="bouton">
+                    <mat-icon>back</mat-icon>
+                    Précédent
+                </a>
+            </mat-card-actions>
+            <mat-card-content>
+                <div *ngFor="let champ of form.champs" >
+                    <!-- <div [ngSwitch]="champ.field.type">
+                        <div *ngSwitchCase="'input'">
+                            <mat-form-field appearance="outline">
+                                <mat-label>{{ champ.label }}</mat-label>
+                                <input matInput >
+                            </mat-form-field>
+                        </div>  
+                        <div *ngSwitchCase="'select'">
+                            <mat-form-field appearance="outline">
+                                <mat-label>{{ champ.label }}</mat-label>
+                                <mat-select  name="profil" >
+                                  <mat-option *ngFor="let option of champ.options" [value]="option">
+                                    {{ option }}
+                                  </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div *ngSwitchCase="'date'">
+                            <mat-form-field appearance="outline">
+                                <mat-label>{{ champ.label }}</mat-label>
+                                <input matInput [matDatepicker]="picker">
+                                <mat-hint>JJ/MM/AAAA</mat-hint>
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                              </mat-form-field>
+                        </div>
+                        <div *ngSwitchCase="'textarea'">
+                            <mat-form-field appearance="outline">
+                                <mat-label>{{ champ.label}}</mat-label>
+                                <textarea matInput ></textarea>
+                              </mat-form-field>
+                        </div>
+                    </div> -->
+                    <div *ngIf="champ.field.type === 'input' && champ.field.realType ==='date' ">
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{ champ.label }}</mat-label>
+                            <input matInput [matDatepicker]="picker">
+                            <mat-hint>JJ/MM/AAAA</mat-hint>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                    </div>
+                    <div *ngIf="champ.field.type === 'input'">
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{ champ.label }}</mat-label>
+                            <input matInput >
+                        </mat-form-field>
+                    </div>  
+                    <div *ngIf="champ.field.type === 'select'">
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{ champ.label }}</mat-label>
+                            <mat-select  name="profil" >
+                              <mat-option *ngFor="let option of champ.options" [value]="option">
+                                {{ option }}
+                              </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    
+                    <div *ngIf="champ.field.type === 'textarea'">
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{ champ.label}}</mat-label>
+                            <textarea matInput ></textarea>
+                          </mat-form-field>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

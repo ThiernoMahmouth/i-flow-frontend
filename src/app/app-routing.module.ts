@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { AddFormComponent } from './layout/forms/components/add-form/add-form.component';
+import { FormComponent } from './layout/forms/components/form/form.component';
 import { ListFormsComponent } from './layout/forms/components/list-forms/list-forms.component';
 import { HomeComponent } from './layout/home/home.component';
 import { TeamsComponent } from './layout/teams/teams.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'teams', component: TeamsComponent},
       { path: 'workflows', component: ListWorklowComponent},
       { path: 'add-workflow', component: AddWorkflowComponent},
+      { path: 'form', component: FormComponent }
     ]
   },
   {

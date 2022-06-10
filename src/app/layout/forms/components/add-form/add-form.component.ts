@@ -12,13 +12,18 @@ export class AddFormComponent implements OnInit
 {
   fields !: Field[];
   form !: Form;
+  champs !: Champ[];
   champ !: Champ;
   constructor() { }
 
   ngOnInit(): void 
   {
-    this.form = new Form();
-    this.fields = []
+    if (history.state.formulaire)
+      this.form = history.state.formulaire;
+    else 
+      this.form = new Form();
+    this.fields = [];
+    this.champs = [];
   }
   
   onAddField(field: Field)
@@ -27,6 +32,7 @@ export class AddFormComponent implements OnInit
     this.champ.field = field;
     this.form.champs.push(this.champ);
     this.fields.push(field);
-    console.log(JSON.stringify(this.form));
+    this.champs.push(this.champ);
+    // console.log(JSON.stringify(this.form));
   }
 }

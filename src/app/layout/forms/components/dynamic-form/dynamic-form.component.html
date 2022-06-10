@@ -32,7 +32,8 @@
 
     </mat-expansion-panel>
   </mat-accordion>
-  <mat-accordion *ngFor="let field of fields; index as idx"  class="example-headers-align">
+  <!---****************************************************** -->
+  <!-- <mat-accordion *ngFor="let field of fields; index as idx"  class="example-headers-align">
     <mat-expansion-panel [expanded]="true" hideToggle class="mat-elevation-z8" >
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -48,10 +49,8 @@
       </mat-expansion-panel-header>
 
       <div fxLayout="column"  fxLayoutGap="15px">
-        <!-- CHAMP -->
         <div class="form-group">
-          <input type="email" class="form-control" id="" value="Nouvelle question">
-          <!-- <small id="emailHelp" class="form-text text-muted"></small> -->
+          <input type="text" class="form-control" id="" value="Nouvelle question">
         </div>
         <div *ngIf="showAddDescriptionButton(idx)">
           <a mat-button (click)="showDescriptionField(idx)">Ajouter une description</a>
@@ -65,16 +64,14 @@
             <mat-label>Description</mat-label>
             <textarea matInput ></textarea>
           </mat-form-field>
-            <!-- <input type="text" class="form-control" id="" placeholder="Description"> -->
-            <button mat-raised-button style="color: var(--blue); float: right;" (click)="openAdvancedDialog(idx)">
-              <mat-icon>add</mat-icon>
-              Avancés
-            </button>
+          <button mat-raised-button style="color: var(--blue); float: right;" (click)="openAdvancedDialog(idx)">
+            <mat-icon>add</mat-icon>
+            Avancés
+          </button>
         </div>
         <div>
           <mat-divider></mat-divider>
         </div>
-          <!-- REQUIRED -->
         <div>
           <label class="switch">
             <input type="checkbox" id="obl" class="primary">
@@ -83,7 +80,55 @@
           <label class="text" for="obl">Obligatoire</label>
         </div>
       </div>
-       
+    </mat-expansion-panel>
+  </mat-accordion>-->
+  <mat-accordion *ngFor="let champ of form.champs; index as idx"  class="example-headers-align">
+    <mat-expansion-panel [expanded]="true" hideToggle class="mat-elevation-z8" >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>{{ champ.field.icon }}</mat-icon>
+          <span>{{ champ.field.label }}</span>
+          <div style="display: inline-block; ">
+            <button mat-icon-button style="color: red;float: right;" (click)="deleteField(idx)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+          
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div fxLayout="column"  fxLayoutGap="15px">
+        <div class="form-group">
+          <input type="text" class="form-control" id="" [(ngModel)]="champ.label" value="Nouvelle question">
+        </div>
+        <div *ngIf="showAddDescriptionButton(idx)">
+          <a mat-button (click)="showDescriptionField(idx)">Ajouter une description</a>
+          <button mat-raised-button style="color: var(--blue); float: right;" (click)="openAdvancedDialog(idx)">
+            <mat-icon>add</mat-icon>
+            Avancés
+          </button>
+        </div>
+        <div *ngIf="!showAddDescriptionButton(idx)">
+          <mat-form-field style="width: 80%" appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput [(ngModel)]="champ.description"></textarea>
+          </mat-form-field>
+          <button mat-raised-button style="color: var(--blue); float: right;" (click)="openAdvancedDialog(idx)">
+            <mat-icon>add</mat-icon>
+            Avancés
+          </button>
+        </div>
+        <div>
+          <mat-divider></mat-divider>
+        </div>
+        <div>
+          <label class="switch">
+            <input type="checkbox" id="obl" class="primary">
+            <span class="slider round"></span>
+          </label>
+          <label class="text" for="obl">Obligatoire</label>
+        </div>
+      </div>
     </mat-expansion-panel>
   </mat-accordion>
 </div>

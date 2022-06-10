@@ -5,7 +5,7 @@
                 <mat-card-title>Ajout de Formulaire</mat-card-title>
             </mat-card-header>
             <mat-card-actions align="end">
-                <a target="_blank" routerLink="/form" mat-button class="bouton">
+                <a  [routerLink]="['../form']" [state]="form" mat-button class="bouton">
                     <mat-icon>visibility</mat-icon>
                     Aperçu
                 </a>
@@ -21,7 +21,7 @@
                         <app-field-bar (addField)="onAddField($event)"></app-field-bar>       
                     </mat-card>
                     <mat-card fxFlex="75" class="carte">
-                        <app-dynamic-form [fields]="fields" [form]="form"></app-dynamic-form>       
+                        <app-dynamic-form [fields]="fields" [champs]="champs" [form]="form"></app-dynamic-form>       
                     </mat-card> 
                 </div>
                 

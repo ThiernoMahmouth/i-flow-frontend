@@ -19,13 +19,13 @@ export class DynamicFormComponent implements OnInit
 
   @Input() fields !: Field[]
   @Input() form!: Form;
-  champ !: Champ;
+  @Input() champs !: Champ[];
 
   constructor(public dialog:MatDialog) { }
 
   ngOnInit(): void 
   {
-    console.log(this.form.champs.length)
+    // console.log(this.form.champs.length)
   }
 
   
@@ -59,6 +59,7 @@ export class DynamicFormComponent implements OnInit
   {
     this.fields.splice(index, 1);
     this.form.champs.splice(index, 1);
+    this.champs.splice(index, 1);
   }
 
   openAdvancedDialog(index: number)
